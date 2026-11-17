@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is an LLM — aoracore-llm — Aorabyte Sdn. Bhd.</title>
+    <meta name="description" content="A plain-language introduction to large language models: what they are, how they write text, and where beginners go wrong." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800;9..144,900&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <header class="nav">
+        <a href="../../index.html" class="nav__logo" aria-label="Aorabyte home">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L2 28h28L16 2z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M16 10L8 25h16L16 10z" fill="currentColor"/>
+                <circle cx="16" cy="20" r="1.5" fill="#0a0a0a"/>
+            </svg>
+            <span>AORABYTE</span>
+        </a>
+        <nav class="nav__links">
+            <a href="../../index.html#capabilities">Capabilities</a>
+            <a href="../../index.html#products">Products</a>
+            <a href="../../index.html#company">Company</a>
+            <a href="../../index.html#contact" class="nav__cta">Contact →</a>
+        </nav>
+    </header>
+
+    <main class="product concept">
+        <a class="product__back" href="../aoracore-llm.html">← aoracore-llm</a>
+        <h1>What is an LLM</h1>
+        <p class="product__tracks">aoracore-llm · Concept</p>
+
+        <section class="product__block">
+            <h2>Definition</h2>
+            <p>An LLM (large language model) is a computer program that has learned the patterns of language by reading a huge amount of text. When you give it some text, it predicts what is most likely to come next, one small piece (called a token) at a time. Repeating that prediction over and over is how it writes answers, summaries and code.</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Analogy</h2>
+            <p>An LLM is like the autocomplete on your phone keyboard, only far more capable. Your phone suggests the next word from the last few words you typed. An LLM does the same thing from whole pages of text, which is why it can finish an essay and not just a sentence.</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Diagram</h2>
+            <figure class="concept__diagram">
+                <div class="concept__diagram-scroll" tabindex="0">
+                    <svg viewBox="0 0 640 215" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diagram-title diagram-desc">
+                        <title id="diagram-title">How an LLM writes text</title>
+                        <desc id="diagram-desc">The text so far goes into the LLM. The LLM predicts the next token. That token is added to the text, and the loop repeats.</desc>
+                        <defs>
+                            <marker id="concept-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                                <path class="diagram__arrowhead" d="M0 0L10 5L0 10z"/>
+                            </marker>
+                        </defs>
+
+                        <rect class="diagram__box" x="10" y="30" width="180" height="80" rx="8"/>
+                        <text class="diagram__label" x="100" y="60" text-anchor="middle">TEXT SO FAR</text>
+                        <text class="diagram__text" x="100" y="88" text-anchor="middle">“The sky is”</text>
+
+                        <rect class="diagram__box diagram__box--accent" x="230" y="30" width="180" height="80" rx="8"/>
+                        <text class="diagram__label" x="320" y="60" text-anchor="middle">LLM</text>
+                        <text class="diagram__text" x="320" y="88" text-anchor="middle">predicts what is next</text>
+
+                        <rect class="diagram__box" x="450" y="30" width="180" height="80" rx="8"/>
+                        <text class="diagram__label" x="540" y="60" text-anchor="middle">NEXT TOKEN</text>
+                        <text class="diagram__text" x="540" y="88" text-anchor="middle">“blue”</text>
+
+                        <path class="diagram__arrow" d="M192 70H227" marker-end="url(#concept-arrow)"/>
+                        <path class="diagram__arrow" d="M412 70H447" marker-end="url(#concept-arrow)"/>
+                        <path class="diagram__arrow" d="M540 112V165H100V114" marker-end="url(#concept-arrow)"/>
+                        <text class="diagram__label" x="320" y="192" text-anchor="middle">ADD THE NEW TOKEN TO THE TEXT, THEN REPEAT</text>
+                    </svg>
+                </div>
+                <figcaption>The model only ever predicts one token at a time. Each new token is added to the text and the loop runs again until the answer is finished.</figcaption>
+            </figure>
+        </section>
+
+        <section class="product__block">
+            <h2>Example code</h2>
+            <p>This Python snippet downloads a small, free model and asks it to continue a sentence.</p>
+            <pre class="concept__code"><code><span class="c-dim"># First, in a terminal: pip install transformers torch</span>
+<span class="c-key">from</span> transformers <span class="c-key">import</span> pipeline
+
+<span class="c-dim"># Load a small model that runs on a normal laptop</span>
+generator = pipeline(<span class="c-str">"text-generation"</span>, model=<span class="c-str">"distilgpt2"</span>)
+
+<span class="c-dim"># Ask it to continue the sentence with up to 5 new tokens</span>
+result = generator(<span class="c-str">"The sky is"</span>, max_new_tokens=<span class="c-num">5</span>)
+print(result[<span class="c-num">0</span>][<span class="c-str">"generated_text"</span>])</code></pre>
+            <p class="product__note">It prints your sentence plus a few new words. Run it twice and the ending will usually be different.</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Common mistakes</h2>
+            <ul class="concept__list">
+                <li><strong>Thinking it looks things up.</strong> An LLM writes text that sounds likely. It does not check facts unless it is connected to a search tool, so it can be confidently wrong.</li>
+                <li><strong>Thinking it remembers you.</strong> The model only sees the text in the current conversation. Anything outside that text is unknown to it.</li>
+                <li><strong>Expecting the same answer every time.</strong> The model picks the next token with a little randomness, so the same question can get different answers.</li>
+            </ul>
+        </section>
+
+        <section class="product__block">
+            <h2>Interview question</h2>
+            <p class="concept__question">In simple terms, how does an LLM produce a response to a prompt?</p>
+            <p class="concept__answer">It splits the prompt into tokens, then predicts how likely each possible next token is and picks one. It adds that token to the text and repeats until the answer is complete. It learned to make these predictions by training on a very large amount of text.</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Quiz</h2>
+            <p class="product__note">Pick an option to see the answer.</p>
+
+            <div class="quiz__q">
+                <p class="quiz__prompt">1. What does an LLM do at each step when it writes an answer?</p>
+                <div class="quiz__options">
+                    <button type="button" class="quiz__option">Searches the internet for a matching sentence</button>
+                    <button type="button" class="quiz__option" data-correct>Predicts the next token</button>
+                    <button type="button" class="quiz__option">Copies a stored answer from a database</button>
+                </div>
+                <p class="quiz__answer" role="status" hidden><span class="quiz__result"></span> An LLM builds its answer one token at a time by predicting what is most likely to come next.</p>
+            </div>
+
+            <div class="quiz__q">
+                <p class="quiz__prompt">2. What is a token?</p>
+                <div class="quiz__options">
+                    <button type="button" class="quiz__option" data-correct>A small piece of text, such as a word or part of a word</button>
+                    <button type="button" class="quiz__option">A password that unlocks the model</button>
+                    <button type="button" class="quiz__option">A complete answer from the model</button>
+                </div>
+                <p class="quiz__answer" role="status" hidden><span class="quiz__result"></span> Tokens are the small pieces of text a model reads and writes. A short word is often one token, and a long word can be several.</p>
+            </div>
+
+            <div class="quiz__q">
+                <p class="quiz__prompt">3. Why can an LLM give a confident answer that is wrong?</p>
+                <div class="quiz__options">
+                    <button type="button" class="quiz__option">It is designed to trick people</button>
+                    <button type="button" class="quiz__option">Its internet connection is too slow</button>
+                    <button type="button" class="quiz__option" data-correct>It writes text that sounds likely and does not check facts</button>
+                </div>
+                <p class="quiz__answer" role="status" hidden><span class="quiz__result"></span> The model predicts likely text. Likely text is often true, but nothing in the model checks that it is.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__brand">
+                <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2L2 28h28L16 2z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M16 10L8 25h16L16 10z" fill="currentColor"/>
+                </svg>
+                <span>AORABYTE SDN. BHD.</span>
+            </div>
+            <div class="footer__mono">
+                <span>202501033404 (1634814-W)</span>
+                <span>·</span>
+                <span>Semenyih, Selangor, MY</span>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2025 Aorabyte Sdn. Bhd. All rights reserved.</span>
+            <span class="footer__signoff">Built with engineering discipline &amp; a little caffeine. ☕</span>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../concept.js"></script>
+</body>
+</html>

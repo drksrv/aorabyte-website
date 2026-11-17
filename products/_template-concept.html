@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+    CONCEPT PAGE TEMPLATE
+
+    How to use:
+    1. Copy this file to products/<product>/<concept-slug>.html
+       (example: products/aoracore-llm/what-is-an-llm.html).
+    2. Replace every [PLACEHOLDER] below. Keep the seven sections and their order.
+    3. Link to the new page from the Concepts list in products/<product>.html.
+    4. Delete this comment from your copy.
+
+    Paths: every ../ and ../../ link is written for a page that sits one folder
+    below products/. This template only looks right once it has been copied there.
+
+    Quiz: put data-correct on the one right option in each question.
+    products/concept.js does the rest. Styles live in styles.css under "CONCEPT PAGES".
+
+    Worked example: products/aoracore-llm/what-is-an-llm.html
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[CONCEPT TITLE] — [PRODUCT NAME] — Aorabyte Sdn. Bhd.</title>
+    <meta name="description" content="[ONE-SENTENCE SUMMARY OF THE CONCEPT]" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800;9..144,900&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <header class="nav">
+        <a href="../../index.html" class="nav__logo" aria-label="Aorabyte home">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L2 28h28L16 2z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M16 10L8 25h16L16 10z" fill="currentColor"/>
+                <circle cx="16" cy="20" r="1.5" fill="#0a0a0a"/>
+            </svg>
+            <span>AORABYTE</span>
+        </a>
+        <nav class="nav__links">
+            <a href="../../index.html#capabilities">Capabilities</a>
+            <a href="../../index.html#products">Products</a>
+            <a href="../../index.html#company">Company</a>
+            <a href="../../index.html#contact" class="nav__cta">Contact →</a>
+        </nav>
+    </header>
+
+    <main class="product concept">
+        <!-- Point this at the product page, e.g. ../aoracore-llm.html -->
+        <a class="product__back" href="../[PRODUCT-SLUG].html">← [PRODUCT NAME]</a>
+        <h1>[CONCEPT TITLE]</h1>
+        <p class="product__tracks">[PRODUCT NAME] · Concept</p>
+
+        <section class="product__block">
+            <h2>Definition</h2>
+            <p>[DEFINITION: 2 to 3 plain-language sentences. Say what the thing is, then what it does.]</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Analogy</h2>
+            <p>[ANALOGY: one everyday comparison a beginner already understands.]</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Diagram</h2>
+            <figure class="concept__diagram">
+                <!--
+                    Replace this placeholder with a simple inline SVG when you have one:
+
+                    <div class="concept__diagram-scroll" tabindex="0">
+                        <svg viewBox="0 0 640 215" role="img" aria-labelledby="diagram-title diagram-desc"> ... </svg>
+                    </div>
+
+                    Ready-made SVG classes: diagram__box, diagram__box--accent,
+                    diagram__label, diagram__text, diagram__arrow, diagram__arrowhead.
+                -->
+                <div class="concept__placeholder">[DIAGRAM PLACEHOLDER]</div>
+                <figcaption>[CAPTION: one or two sentences on what the diagram shows.]</figcaption>
+            </figure>
+        </section>
+
+        <section class="product__block">
+            <h2>Example code</h2>
+            <p>[ONE SENTENCE ON WHAT THE SNIPPET DOES.]</p>
+            <!-- Keep it short. Write &lt; and &amp; for < and & inside the code. -->
+            <pre class="concept__code"><code>[SHORT CODE SNIPPET]</code></pre>
+            <p class="product__note">[OPTIONAL: what the reader should see when they run it.]</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Common mistakes</h2>
+            <ul class="concept__list">
+                <li><strong>[MISTAKE 1.]</strong> [Why it is wrong, in one or two sentences.]</li>
+                <li><strong>[MISTAKE 2.]</strong> [Why it is wrong, in one or two sentences.]</li>
+                <li><strong>[MISTAKE 3.]</strong> [Why it is wrong, in one or two sentences.]</li>
+            </ul>
+        </section>
+
+        <section class="product__block">
+            <h2>Interview question</h2>
+            <p class="concept__question">[INTERVIEW QUESTION]</p>
+            <p class="concept__answer">[SHORT ANSWER: 2 to 3 sentences.]</p>
+        </section>
+
+        <section class="product__block">
+            <h2>Quiz</h2>
+            <p class="product__note">Pick an option to see the answer.</p>
+
+            <!-- Three questions, three options each. Put data-correct on the right option. -->
+            <div class="quiz__q">
+                <p class="quiz__prompt">1. [QUESTION 1]</p>
+                <div class="quiz__options">
+                    <button type="button" class="quiz__option" data-correct>[CORRECT OPTION]</button>
+                    <button type="button" class="quiz__option">[WRONG OPTION]</button>
+                    <button type="button" class="quiz__option">[WRONG OPTION]</button>
+                </div>
+                <p class="quiz__answer" role="status" hidden><span class="quiz__result"></span> [ONE-SENTENCE EXPLANATION OF THE RIGHT ANSWER]</p>
+            </div>
+
+            <div class="quiz__q">
+                <p class="quiz__prompt">2. [QUESTION 2]</p>
+                <div class="quiz__options">
+                    <button type="button" class="quiz__option">[WRONG OPTION]</button>
+                    <button type="button" class="quiz__option" data-correct>[CORRECT OPTION]</button>
+                    <button type="button" class="quiz__option">[WRONG OPTION]</button>
+                </div>
+                <p class="quiz__answer" role="status" hidden><span class="quiz__result"></span> [ONE-SENTENCE EXPLANATION OF THE RIGHT ANSWER]</p>
+            </div>
+
+            <div class="quiz__q">
+                <p class="quiz__prompt">3. [QUESTION 3]</p>
+                <div class="quiz__options">
+                    <button type="button" class="quiz__option">[WRONG OPTION]</button>
+                    <button type="button" class="quiz__option">[WRONG OPTION]</button>
+                    <button type="button" class="quiz__option" data-correct>[CORRECT OPTION]</button>
+                </div>
+                <p class="quiz__answer" role="status" hidden><span class="quiz__result"></span> [ONE-SENTENCE EXPLANATION OF THE RIGHT ANSWER]</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__brand">
+                <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2L2 28h28L16 2z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M16 10L8 25h16L16 10z" fill="currentColor"/>
+                </svg>
+                <span>AORABYTE SDN. BHD.</span>
+            </div>
+            <div class="footer__mono">
+                <span>202501033404 (1634814-W)</span>
+                <span>·</span>
+                <span>Semenyih, Selangor, MY</span>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2025 Aorabyte Sdn. Bhd. All rights reserved.</span>
+            <span class="footer__signoff">Built with engineering discipline &amp; a little caffeine. ☕</span>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="../concept.js"></script>
+</body>
+</html>
