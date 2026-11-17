@@ -717,3 +717,27 @@ section { position: relative; z-index: 3; padding: 120px 40px; max-width: var(--
     .process-list li { border-right: none; }
     .footer { padding: 30px 24px; }
 }
+
+/* =========================================
+   AORACORE PRODUCTS (added for products pages)
+   ========================================= */
+.products { padding: 120px 40px; max-width: var(--maxw); margin: 0 auto; }
+a.cap-card { display: block; color: inherit; text-decoration: none; }
+a.cap-card:hover { background: var(--bg-2); }
+
+.product { max-width: 900px; margin: 0 auto; padding: 160px 40px 120px; }
+.product__back { font-family: var(--f-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; }
+.product__back:hover { color: var(--accent); }
+.product h1 { font-family: var(--f-display); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.05; font-weight: 600; letter-spacing: -0.02em; margin-top: 32px; }
+.product__tracks { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-top: 20px; }
+.product__tagline { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--ink-dim); margin-top: 24px; max-width: 60ch; }
+.product__block { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule-strong); }
+.product__block h2 { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+.product__block p { margin-top: 12px; font-size: 1.1rem; max-width: 65ch; }
+.product__topics { margin-top: 16px; list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; }
+.product__topics li { padding-left: 18px; position: relative; }
+.product__topics li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+.product__note { color: var(--ink-dim); font-size: .95rem; }
+@media (max-width: 720px) { .product__topics { grid-template-columns: 1fr; } }
+.products .cap-card:last-child { grid-column: 1 / -1; }
+.product__block { padding: 24px 0 0; min-height: 0; margin-left: 0; margin-right: 0; }
